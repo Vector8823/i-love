@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Ti, Greverly</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom right, #00cba9, #a2f5c8); /* Verde celeste degradado */
+      font-family: 'Georgia', serif;
+      color: #007f6d; /* Verde oscuro para el texto */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      box-sizing: border-box;
+      flex-direction: column;
+    }
+
+    .letter {
+      background: #e0fff7; /* Fondo muy claro verde-agua */
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 128, 96, 0.2); /* Sombra verde */
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 2s ease;
+      position: relative;
+    }
+
+    h1 {
+      color: #009688; /* Verde azulado */
+      margin-bottom: 20px;
+    }
+
+    .animated-text {
+      line-height: 1.6;
+      font-size: 18px;
+      animation: fadeInText 4s ease;
+      color: #00594c; /* Verde más oscuro */
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #26d7a5; /* Verde celeste */
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #1ab892; /* Verde un poco más oscuro al pasar el mouse */
+    }
+
+    .mensaje-oculto {
+      margin-top: 20px;
+      opacity: 0;
+      transition: opacity 1s ease;
+      font-weight: bold;
+      color: #00695c; /* Verde intenso */
+    }
+
+    .mensaje-mostrar {
+      opacity: 1;
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInText {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* Corazones flotantes */
+    .hearts::before, .hearts::after {
+      content: "💚 💙 💚 💙 💚";
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 30px;
+      animation: floatHearts 10s linear infinite;
+      pointer-events: none;
+      color: #00cba9;
+    }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(100vh); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    /* Responsivo para pantallas pequeñas */
+    @media (max-width: 600px) {
+      .letter {
+        padding: 20px;
+        border-radius: 15px;
+        max-width: 100%;
+        margin: 10px;
+      }
+
+      .animated-text {
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      .hearts::before, .hearts::after {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+
+  <div class="letter">
+    <h1>Para Ti, Mi Bella Princesa 💖</h1>
+    <p class="animated-text">
+      No sé en qué momento llegaste a mi vida,<br>
+      solo sé que desde entonces todo es más bonito.<br><br>
+
+      Hay una luz en tu mirada que me calma, y una magia en tu voz que me envuelve.<br>
+      No hablo solo de tu belleza —que es evidente—, sino de todo lo que eres cuando nadie mira:<br>
+      fuerte, dulce, única.<br><br>
+
+      Eres esa canción que no me canso de escuchar, <br>
+      el pensamiento que aparece sin avisar y me saca una sonrisa tonta.<br><br>
+
+      Agradezco al destino por cruzarte en mi camino.<br>
+      Y si algún día dudas de cuánto vales, recuerda esto:<br>
+      hay alguien aquí que te admira profundamente, en silencio... pero con todo el corazón.<br><br>
+
+      Con cariño eterno,<br>
+      <em>Alguien que ve en ti lo que el mundo aún no sabe apreciar</em> 💫
+    </p>
+
+    <button onclick="mostrarMensaje()">Haz clic aquí 💌</button>
+    <div id="mensaje" class="mensaje-oculto">Siempre serás mi inspiración 🌹</div>
+  </div>
+
+  <script>
+    function mostrarMensaje() {
+      document.getElementById("mensaje").classList.add("mensaje-mostrar");
+    }
+  </script>
+</body>
+</html>
